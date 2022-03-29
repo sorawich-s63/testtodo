@@ -22,7 +22,7 @@
     "emulator": {
       "type": "android.emulator",
       "device": {
-        "avdName": "Pixel_2_API_30"
+        "avdName": "Pixel_2_API_25"
       }
     }
   },

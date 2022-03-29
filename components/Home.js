@@ -99,7 +99,7 @@ export default function Home({ route,navigation }) {
                                 </View>
                             );
                         })}
-                        { todoItems.length ? <View></View> : <View><Text>Not Found</Text></View> }
+                        { todoItems.length ? <View></View> : <View><Text style={styles.Notfound_text}>Not Found</Text></View> }
                     </View>
                 </ScrollView>
             </View>
@@ -196,13 +196,12 @@ const styles = StyleSheet.create({
     Search_Holder: {
         position: "absolute",
         width: 230,
-        height: 28,
-        top: 7,
+        height: 40,
         left: 15,
         // fontFamily: "Roboto",
         fontStyle: "normal",
         fontWeight: "400",
-        fontSize: 20,
+        fontSize: 15,
         lineHeight: 28,
     },
     Body_footer: {
@@ -265,4 +264,8 @@ const styles = StyleSheet.create({
     items: {
         marginTop: 30,
     },
+    Notfound_text:{
+        textAlign: "center",
+        fontSize: 20,
+    }
 });
