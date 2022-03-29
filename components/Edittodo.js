@@ -287,14 +287,12 @@ const styles = StyleSheet.create({
     Name_input:{
         position: "absolute",
         width: 330,
-        height: 28,
-        top: 5,
+        height: 40,
         left: 10,
         // fontFamily: "Roboto",
         fontStyle: "normal",
         fontWeight: "400",
         fontSize: 16,
-        lineHeight: 25,
     },
     Detail_square:{
         position: 'relative',
