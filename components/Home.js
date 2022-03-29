@@ -19,8 +19,8 @@ export default function Home({ route,navigation }) {
     const [todoItems, settodoItems] = useState([]);
 
     useEffect(() => {
-        if(Items == null)
-            retrieveTodo();
+            if(Items == null)
+            setTimeout(() => {retrieveTodo(); }, 1500);
     }, [todoItems]);
 
     const retrieveTodo = () => {
@@ -93,6 +93,7 @@ export default function Home({ route,navigation }) {
                                     key={index}
                                 >
                                     <Todo 
+                                        accessibilityLabel= {item.title}
                                         todo = {item} 
                                         onPress = {() => handleedit({item})}
                                     />
@@ -108,7 +109,9 @@ export default function Home({ route,navigation }) {
             <View
                 style={styles.writeTodoWrapper}
             >
-                <TouchableOpacity onPress={() => handleAddTodo()}>
+                <TouchableOpacity 
+                accessibilityLabel="addbutton"
+                onPress={() => handleAddTodo()}>
                     <View style={styles.Add_Button}>
                         <Text style={styles.addText}>+</Text>
                     </View>

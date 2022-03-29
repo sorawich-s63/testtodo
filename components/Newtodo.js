@@ -105,6 +105,7 @@ export default function Newtodo( { navigation } ) {
                     
                     <View style={styles.Name_square}>
                         <TextInput 
+                            accessibilityLabel="title"
                             style={styles.Name_input} 
                             placeholder='Enter the name'
                             value = {title}
@@ -115,6 +116,7 @@ export default function Newtodo( { navigation } ) {
                     <Text style={styles.Text_size}>Detail:</Text>
                     <View style={styles.Detail_square}>
                         <TextInput 
+                            accessibilityLabel="detail"
                             style={styles.Detail_input} 
                             multiline={true} 
                             editable={true} 
@@ -154,7 +156,10 @@ export default function Newtodo( { navigation } ) {
                 </ScrollView>
                 
                 <View style={styles.SaveBT_footer}>
-                    <Pressable style={styles.Save_icon} onPress={() => handlesave()}>
+                    <Pressable 
+                    accessibilityLabel="savebutton"
+                    style={styles.Save_icon} 
+                    onPress={() => handlesave()}>
                         <Text style={styles.Save_text}>SAVE</Text>
                     </Pressable>
                 </View>
