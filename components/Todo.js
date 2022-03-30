@@ -38,8 +38,10 @@ const Todo = (props ,{ navigation }) => {
             testID={props.testID}
         >
             <View style={styles.itemLeft}>
-                <Pressable style={styles.Complete_footer} onPress={() => setStatus() } >
-                    <Image source={ data.published ? require('../image/complete.png') : require('../image/incomplete.png') } style={styles.Complete_size}></Image>
+                <Pressable style={styles.Complete_footer} onPress={() => setStatus()} testID="status-button" >
+                    {data.published ? 
+                    <Image source={require('../image/complete.png')} style={styles.Complete_size} testID="complete" /> : 
+                    <Image source={require('../image/incomplete.png')} style={styles.Complete_size} testID="incomplete" /> }
                 </Pressable>
 
 

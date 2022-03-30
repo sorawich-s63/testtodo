@@ -4,19 +4,19 @@ describe('Test-Todo', () => {
     setTimeout(() => { }, 2000);
   });
 
-  // it('Add "Todo-List"', async () => {
-  //   await element(by.accessibilityLabel('addbutton')).tap();
-  //   await element(by.accessibilityLabel('title')).typeText("buy milk\n");
-  //   await element(by.accessibilityLabel('Detail')).typeText("no milk\n");
-  //   // await element(by.accessibilityLabel('savebutton')).tap();
-  //   // await expect(element(by.accessibilityLabel('buy milk'))).toBeVisible();
-  // });
+  it.only('Add "Todo-List"', async () => {
+    await element(by.accessibilityLabel('addbutton')).tap();
+    //await element(by.accessibilityLabel('title')).typeText("buy milk\n");
+    //await element(by.accessibilityLabel('text-detail')).typeText("no milk\n");
+    // await element(by.accessibilityLabel('savebutton')).tap();
+    await expect( element(by.id('text-detail')) ).toBeVisible();
+  });
 
   it('Search Not Found "Todo-List"', async () => {
     await element(by.id('Search-text')).typeText("Go to the sea\n");
     await element(by.id('Search-button')).tap();
     await element(by.id('Search-button')).tap();
-    await expect(element(by.id('not-found'))).toBeVisible();
+    await waitFor( element(by.id('not-found')) ).toBeVisible().withTimeout(5000)
   });
 
   it('Search Found "Todo-List"', async () => {
@@ -28,7 +28,16 @@ describe('Test-Todo', () => {
     await expect(element(by.id("Do Homework"))).toBeVisible();
   });
 
-  // it('should show "See Your Changes"', async () => {
-  //   await expect(element(by.text('See Your Changes'))).toBeVisible(); // THIS TEST WILL FAIL!
-  // });
+  it('Status complete "Todo-List"', async () => {
+    //await element(by.id('status-button')).atIndex(1).tap();
+    await element(by.id('status-button').withAncestor(by.id('Do Homework'))).tap();
+
+    // await expect(element(by.id("complete"))).toBeVisible();
+    // await expect( element(by.id('complete').withAncestor(by.id('Do Homework'))) ).toBeVisible();
+    // await expect( element(by.id('complete').withAncestor(by.id('Do Homework'))) ).toBeVisible();
+    //await expect( element(by.id('complete').withAncestor(by.id('Do Homework'))) ).toBeVisible();
+    await waitFor( element(by.id('complete').withAncestor(by.id('Do Homework'))) ).toBeVisible().withTimeout(5000)
+
+  });
+
 });

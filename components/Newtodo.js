@@ -116,7 +116,7 @@ export default function Newtodo( { navigation } ) {
                     <Text style={styles.Text_size}>Detail:</Text>
                     <View style={styles.Detail_square}>
                         <TextInput 
-                            accessibilityLabel="Detail"
+                            testID="text-detail"
                             style={styles.Detail_input} 
                             multiline={true} 
                             editable={true} 
