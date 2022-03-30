@@ -82,7 +82,7 @@ export default function Newtodo( { navigation } ) {
     };
     
     return (
-        <View style={styles.container}>
+        <View style={styles.container} testID='Addtodo'>
             {/* ส่วนหัว */}
             <View style={styles.Header_Footer}>
                 <Text style={styles.Header_Title}>Todo-List</Text>
@@ -105,28 +105,29 @@ export default function Newtodo( { navigation } ) {
                     
                     <View style={styles.Name_square}>
                         <TextInput 
-                            accessibilityLabel="title"
+                            testID="title"
                             style={styles.Name_input} 
                             placeholder='Enter the name'
                             value = {title}
                             onChangeText = {(text) => setTitle(text)}
                         />
                     </View>
-
-                    <Text style={styles.Text_size}>Detail:</Text>
-                    <View style={styles.Detail_square}>
-                        <TextInput 
-                            testID="text-detail"
-                            style={styles.Detail_input} 
-                            multiline={true} 
-                            editable={true} 
-                            placeholder='Note something?'
-                            value = {des}
-                            onChangeText = {(text) => setDes(text)}
-                        />
+                        <View testID="detail">
+                        <Text style={styles.Text_size}>Detail:</Text>
+                        <View style={styles.Detail_square} >
+                            <TextInput 
+                                testID="adddetail"
+                                style={styles.Detail_input} 
+                                multiline={true} 
+                                editable={true} 
+                                placeholder='Note something?'
+                                value = {des}
+                                onChangeText = {(text) => setDes(text)}
+                            />
+                        </View>
                     </View>
 
-                    <View style={styles.Datetime_footer} >
+                    <View style={styles.Datetime_footer} testID='dateTimePicker'>
                         <Text style={styles.Text_size}>Date:</Text>
                         <View style={styles.Date_square}>
                             <Pressable style={styles.Date_icon} onPress={() => showMode('date')}>
@@ -143,7 +144,6 @@ export default function Newtodo( { navigation } ) {
 
                         {show && (
                             <DateTimePicker
-                            testID='dateTimePicker'
                             value={date}
                             mode={mode}
                             is24Hour={true}
@@ -155,9 +155,9 @@ export default function Newtodo( { navigation } ) {
 
                 </ScrollView>
                 
-                <View style={styles.SaveBT_footer}>
-                    <Pressable 
-                    accessibilityLabel="savebutton"
+                <View style={styles.SaveBT_footer} >
+                    <Pressable
+                    testID="savebutton"
                     style={styles.Save_icon} 
                     onPress={() => handlesave()}>
                         <Text style={styles.Save_text}>SAVE</Text>

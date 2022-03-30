@@ -96,15 +96,18 @@ const Todo = (props ,{ navigation }) => {
             </View>
             <View style={styles.Icon_footer}>
                 <View style={styles.Edit_footer}>
-                    <Pressable style={styles.Edit_icon} onPress={() => props.onPress() } >
+                    <Pressable style={styles.Edit_icon} onPress={() => props.onPress() }  testID='edit-button'>
                         <Image source={require('../image/edit.png')} style={styles.Edit_size}> 
                         </Image>
                     </Pressable>
                 </View>
                 <View style={styles.favourite_footer} >
-                    <Pressable style={styles.Edit_icon} onPress={() => setFav()} >
-                        <Image source={ data.favourite ? require('../image/favourite.png'):require('../image/unfavourite.png')} style={styles.Edit_size}> 
-                        </Image>
+                <Pressable style={styles.Edit_icon} onPress={() => setFav()} testID="fav-button" >
+                        { data.favourite ? 
+                            <Image source={require('../image/favourite.png')} style={styles.Edit_size} testID="favourite" />
+                            :
+                            <Image source={require('../image/unfavourite.png')} style={styles.Edit_size} testID="unfavourite" />
+                        } 
                     </Pressable>
                 </View>
             </View>

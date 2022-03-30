@@ -132,6 +132,7 @@ export default function Edit( { route,navigation } ) {
                     
                     <View style={styles.Name_square}>
                         <TextInput 
+                            testID='edit-title'
                             style={styles.Name_input} 
                             placeholder='Enter the name'
                             value = {title}
@@ -141,7 +142,8 @@ export default function Edit( { route,navigation } ) {
 
                     <Text style={styles.Text_size}>Detail:</Text>
                     <View style={styles.Detail_square}>
-                        <TextInput 
+                        <TextInput
+                            testID='editedtail' 
                             style={styles.Detail_input} 
                             multiline={true} 
                             editable={true} 
@@ -151,7 +153,7 @@ export default function Edit( { route,navigation } ) {
                         />
                     </View>
 
-                    <View style={styles.Datetime_footer} >
+                    <View style={styles.Datetime_footer} testID='edit-time'>
                         <Text style={styles.Text_size}>Date:</Text>
                         <View style={styles.Date_square}>
                             <Pressable style={styles.Date_icon} onPress={() => showMode('date')}>
@@ -168,7 +170,6 @@ export default function Edit( { route,navigation } ) {
 
                         {show && (
                             <DateTimePicker
-                            testID='dateTimePicker'
                             value={date}
                             mode={mode}
                             is24Hour={true}
@@ -181,12 +182,13 @@ export default function Edit( { route,navigation } ) {
                 </ScrollView>
                 
                 <View style={styles.BT_footer}>
-                    <View style={styles.SaveBT_footer}>
+                    <View style={styles.SaveBT_footer} /*  */
+                    testID='update'>
                         <Pressable style={styles.Save_icon} onPress={() => handleSave()}>
                             <Text style={styles.Save_text}>SAVE</Text>
                         </Pressable>
                     </View>
-                    <View style={styles.DeleteBT_footer}>
+                    <View style={styles.DeleteBT_footer} testID='delete'>
                         <Pressable style={styles.Delete_icon} onPress={() => handleDelete()}>
                             <Text style={styles.Delete_text}>DELETE</Text>
                         </Pressable>
