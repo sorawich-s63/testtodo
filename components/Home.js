@@ -32,6 +32,8 @@ export default function Home({ route,navigation }) {
                 console.log(e);
             });
     };
+    
+
 
     const handleAddTodo = () => {
         navigation.navigate('Add');
@@ -61,6 +63,7 @@ export default function Home({ route,navigation }) {
                 <View style={styles.Search_Footer}>
                     <View style={styles.Search_Title}>
                         <TextInput
+                            testID="Search-text"
                             style={styles.Search_Holder}
                             placeholder={"Search"}
                             onChangeText = {(text) => ( setItems(text)  )  }
@@ -68,11 +71,12 @@ export default function Home({ route,navigation }) {
                     </View>
 
                     <Pressable
+                        testID="Search-button"
                         style={styles.Button_Footer}
                         title="Search"
                         onPress={() => handleSearch()}
                     >
-                        <Text style={styles.Search_Button}>Search</Text>
+                        <Text style={styles.Search_Button} >Search</Text>
                     </Pressable>
                 </View>
             </View>
@@ -93,14 +97,14 @@ export default function Home({ route,navigation }) {
                                     key={index}
                                 >
                                     <Todo 
-                                        accessibilityLabel= {item.title}
+                                        testID= {item.title}
                                         todo = {item} 
                                         onPress = {() => handleedit({item})}
                                     />
                                 </View>
                             );
                         })}
-                        { todoItems.length ? <View></View> : <View><Text style={styles.Notfound_text}>Not Found</Text></View> }
+                        { todoItems.length ? <View></View> : <View><Text style={styles.Notfound_text} testID="not-found" >Not Found</Text></View> }
                     </View>
                 </ScrollView>
             </View>
