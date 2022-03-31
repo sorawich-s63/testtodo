@@ -112,19 +112,17 @@ export default function Newtodo( { navigation } ) {
                             onChangeText = {(text) => setTitle(text)}
                         />
                     </View>
-                        <View testID="detail">
-                        <Text style={styles.Text_size}>Detail:</Text>
-                        <View style={styles.Detail_square} >
-                            <TextInput 
-                                testID="adddetail"
-                                style={styles.Detail_input} 
-                                multiline={true} 
-                                editable={true} 
-                                placeholder='Note something?'
-                                value = {des}
-                                onChangeText = {(text) => setDes(text)}
-                            />
-                        </View>
+                    <Text style={styles.Text_size}>Detail:</Text>
+                    <View style={styles.Detail_square} >
+                        <TextInput 
+                            testID="detail"
+                            style={styles.Detail_input} 
+                            multiline={true} 
+                            editable={true} 
+                            placeholder='Note something?'
+                            value = {des}
+                            onChangeText = {(text) => setDes(text)}
+                        />
                     </View>
 
                     <View style={styles.Datetime_footer} testID='dateTimePicker'>

@@ -143,7 +143,7 @@ export default function Edit( { route,navigation } ) {
                     <Text style={styles.Text_size}>Detail:</Text>
                     <View style={styles.Detail_square}>
                         <TextInput
-                            testID='editedtail' 
+                            testID='edit-detail' 
                             style={styles.Detail_input} 
                             multiline={true} 
                             editable={true} 

@@ -114,7 +114,7 @@ export default function Home({ route,navigation }) {
                 style={styles.writeTodoWrapper}
             >
                 <TouchableOpacity 
-                accessibilityLabel="addbutton"
+                testID="addbutton"
                 onPress={() => handleAddTodo()}>
                     <View style={styles.Add_Button}>
                         <Text style={styles.addText}>+</Text>
