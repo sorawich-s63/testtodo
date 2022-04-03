@@ -46,6 +46,7 @@ const Todo = (props ,{ navigation }) => {
 
 
                 <Modal
+                    
                     animationType="slide"
                     transparent={true}
                     visible={modalVisible}
@@ -54,23 +55,35 @@ const Todo = (props ,{ navigation }) => {
                     setModalVisible(!modalVisible);
                     }}>
 
-                    <View style={styles.CenteredView}>
+                    <View style={styles.CenteredView} testID='model'>
                         <View style={styles.ModalView}>
                             
                             <ScrollView style={styles.Scrollview_size}>
                                 
                                 
-                                <Text style={styles.Title_text} numberOfLines={1} ellipsizeMode={'tail'} >{data.title}</Text>
+                                <Text 
+                                    testID='model_title'
+                                    style={styles.Title_text} 
+                                    numberOfLines={1} 
+                                    ellipsizeMode={'tail'} 
+                                >
+                                    {data.title}
+                                </Text>
                                 <View style={{flexDirection: 'row'}}>
                                     <Image source={ require('../image/clock.png')} style={styles.Clock_size}> 
                                     </Image>
                                     <Text style={styles.Time_text}>{data.datetime}</Text>
                                 </View>
                                 <Text style={styles.Detail_title}>Detail</Text>
-                                <Text style={styles.In_detail}>{data.description}</Text>
+                                <Text 
+                                    testID='model_detail'
+                                    style={styles.In_detail}
+                                >
+                                    {data.description}
+                                </Text>
                             </ScrollView>
 
-                            <Pressable  style={styles.Button_close} onPress={() => setModalVisible(!modalVisible)}>
+                            <Pressable style={styles.Button_close} onPress={() => setModalVisible(!modalVisible)} testID="model_exit" >
                                 <Image source={require('../image/cancel.png')} style={styles.Cancel_size}> 
                                 </Image>
                             </Pressable>
@@ -79,9 +92,9 @@ const Todo = (props ,{ navigation }) => {
                             
                         </View>
                     </View>
-                    
                 </Modal>
-                <Pressable  style={styles.Button_open}  onPress={() => setModalVisible(true)}>
+                
+                <Pressable  style={styles.Button_open}  onPress={() => setModalVisible(true)} testID="model_button" >
 
                     <Text style={styles.Item_text} numberOfLines={1} ellipsizeMode={'tail'}>{data.title}</Text>
                     <View style={{flexDirection: 'row'}}>
